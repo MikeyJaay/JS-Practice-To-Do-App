@@ -14,16 +14,29 @@ function addTask() {
     li.appendChild(span);
   }
   inputBox.value = "";
+  saveData();
 }
 
-//  For click crosses out or uncrosses out task & changes check png 
-listContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "LI"){
-        e.target.classList.toggle("checked");
+//  For click crosses out or uncrosses out task & changes check png
+listContainer.addEventListener(
+  "click",
+  function (e) {
+    if (e.target.tagName === "LI") {
+      e.target.classList.toggle("checked");
+      saveData();
+    } else if (e.target.tagName === "SPAN") {
+      e.target.parentElement.remove();
+      saveData();
     }
-    else if(e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
-    }
-}, false);
+  },
+  false
+);
 
-
+// Stops task from being erased after browswer refresh
+function saveData() {
+  localStorage.setItem("data", listContainer.innerHTML);
+}
+function showTask() {
+  listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();

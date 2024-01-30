@@ -90,10 +90,12 @@ ul li:before {
 ul li.checked {
   color: #555;
   text-decoration: line-through;
+  cursor: pointer;
 }
 
 ul li.checked::before {
   background-image: url(images/checked.png);
+  cursor: pointer;
 }
 
 ul li span {

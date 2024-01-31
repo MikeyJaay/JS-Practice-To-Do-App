@@ -5,5 +5,4 @@ This is a simple To-Do List App that uses JavaScript to:
     - cross out completed tasks
     -un-cross out tasks if needed
     - delete tasks
-    - keeps task data even when browser is refresh
-    
+    - keeps task data even when browser is refresh    
